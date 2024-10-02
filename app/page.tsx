@@ -1,101 +1,204 @@
+import AchievementCard from "@/components/achievementCard";
+import ProjectCard from "@/components/projectCard";
+import SkillCard from "@/components/skillCard";
+import WorkExperienceCard from "@/components/WorkExCard";
 import Image from "next/image";
+import Link from "next/link";
+
+type workExp = {
+  position: string;
+  company: string;
+  startDate: string;
+  endDate: string;
+  logo: string;
+  id: number;
+};
+type achievement = {
+  name: string;
+  issuer: string;
+  date: string;
+  logo: string;
+  link: string;
+  id: number;
+};
+type project = {
+  name: string;
+  summary: string;
+  image: string;
+  link: string;
+  id: number;
+};
+type skill = {
+  title: string;
+  description: string;
+  logo: string;
+  id: number;
+};
+
+const workExperiences: workExp[] = [
+  {
+    position: "Developer",
+    company: "Fastenal",
+    startDate: "June 2023",
+    endDate: "Present",
+    logo: "/favicon.ico",
+    id: 1,
+  },
+  {
+    position: "Intern",
+    company: "Fastenal",
+    startDate: "Jan 2023",
+    endDate: "May 2023",
+    logo: "/favicon.ico",
+    id: 2,
+  },
+];
+const achievements: achievement[] = [
+  {
+    name: "1100+ problems on leetcode",
+    issuer: "Leetcode",
+    date: "2024",
+    logo: "/leetcode.png",
+    link: "https://leetcode.com/u/sandeep8381/",
+    id: 1,
+  },
+  {
+    name: "1800+ rating on Codechef",
+    issuer: "Codechef",
+    date: "2024",
+    logo: "",
+    link: "https://leetcode.com/u/sandeep8381/",
+    id: 2,
+  },
+];
+const projects: project[] = [
+  {
+    name: "School Management System",
+    summary:
+      "The system allows secure and efficient management of school operations, with tailored features for each role to ensure seamless user experience.",
+    image: "/schoolManagementSystem.png",
+    link: "https://school-management-system-sandy.vercel.app/list/teachers",
+    id: 1,
+  },
+  {
+    name: "Bet-Your-View",
+    summary:
+      "Youtube Opinions market dapp running on Solona blockchain which lets youtubers create their own coin and let people buy the coins and support the creators. Users can trade and the value of a coin fluctuates based on supply and demand.",
+    image: "/betyourview.png",
+    link: "https://view-app-next.vercel.app/",
+    id: 2,
+  },
+];
+const skills: skill[] = [
+  {
+    title: "Full Stack Development",
+    description: "Creating fully functional scalable websites",
+    logo: "/favicon.ico",
+    id: 1,
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex flex-col gap-10 sm:flex-row bg-primary text-black min-h-screen sm:item-center sm:justify-around p-4 mt-4">
+      {/* LEFT */}
+      <div className="flex flex-col gap-6 sm:w-2/5" id="aboutme">
+        <Image src="/favicon.ico" alt="" width={80} height={80} />
+        <div className="flex flex-col gap-2">
+          <h1 className="font-bold text-2xl">I&apos;m Sandeep</h1>
+          <p className="font-mono ">
+            Web(React), Mobile(Flutter) and Blockchain Developer based in
+            Bangalore, India
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+      {/* RIGHT */}
+      <div className="flex flex-col gap-2 md:w-3/5 lg:w-2/5">
+        {/* Tagline and Connect */}
+        <div className="flex flex-col gap-5">
+          <h1 className="flex w-[80%] font-semibold">
+            Passionate creating great experiences for Digital Product
+          </h1>
+          <div className="flex flex-col gap-4 items-center lg:flex-row">
+            <button className="rounded-full border-gray-300 bg-black text-white px-4 py-2 font-serif">
+              Talk With Me
+            </button>
+            <Link href="#myworks">
+              <button className="rounded-full border-gray-300 border px-4 py-2 font-serif">
+                See my work
+              </button>
+            </Link>
+          </div>
+          <hr />
+        </div>
+        {/* Working Experience */}
+        <div className="flex flex-col p-4 gap-2" id="experience">
+          <div className="text-lg">Working Experience</div>
+          <div className="flex flex-col p-2 gap-2">
+            {workExperiences.map((item) => (
+              <WorkExperienceCard
+                key={item.id}
+                position={item.position}
+                company={item.company}
+                startDate={item.startDate}
+                endDate={item.endDate}
+                logo={item.logo}
+              />
+            ))}
+          </div>
+          <hr />
+        </div>
+        {/* Acheivements and Milestones */}
+        <div className="flex flex-col p-4 gap-2">
+          <div className="text-lg">Acheivements and Milestones</div>
+          <div className="flex flex-col p-2 gap-2">
+            {achievements.map((item) => (
+              <AchievementCard
+                key={item.id}
+                name={item.name}
+                issuer={item.issuer}
+                date={item.date}
+                link={item.link}
+                logo={item.logo}
+              />
+            ))}
+          </div>
+          <hr />
+        </div>
+        {/* About me */}
+        <div className="flex flex-col p-4 gap-2">
+          <div className="text-lg" id="whatido">
+            What i do
+          </div>
+          <div className="flex flex-col p-2 gap-2">
+            {skills.map((item) => (
+              <SkillCard
+                key={item.id}
+                title={item.title}
+                description={item.description}
+                logo={item.logo}
+              />
+            ))}
+          </div>
+          <hr />
+        </div>
+        {/* Projects */}
+        <div className="flex flex-col p-4 gap-2" id="myworks">
+          <div className="text-lg">Selected Works</div>
+          <div className="flex flex-col p-2 gap-2">
+            {projects.map((item) => (
+              <ProjectCard
+                key={item.id}
+                name={item.name}
+                summary={item.summary}
+                image={item.image}
+                link={item.link}
+              />
+            ))}
+          </div>
+          <hr />
+        </div>
+      </div>
     </div>
   );
 }
