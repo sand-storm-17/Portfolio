@@ -8,13 +8,13 @@ const Footer = () => {
     <div className="flex bg-black rounded-full px-10 py-6 justify-between mx-2">
       <Image src="/favicon.ico" alt="" width={40} height={40} />
       <div className="flex items-center justify-around text-md w-3/5">
-        <Link href="" className="hidden md:block">
+        <Link href="#whatido" className="hidden md:block">
           Services
         </Link>
-        <Link href="" className="hidden md:block">
+        <Link href="#experience" className="hidden md:block">
           Experience
         </Link>
-        <Link href="" className="hidden md:block">
+        <Link href="#aboutme" className="hidden md:block">
           About Me
         </Link>
         <div className="flex gap-3">

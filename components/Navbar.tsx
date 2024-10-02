@@ -11,13 +11,13 @@ const Navbar = () => {
         </div>
         <div className="hidden md:block">
           <div className="flex items-center justify-end gap-6 text-md">
-            <Link href="" className="">
+            <Link href="#whatido" className="">
               Services
             </Link>
-            <Link href="" className="">
+            <Link href="#experience" className="">
               Experience
             </Link>
-            <Link href="" className="">
+            <Link href="#aboutme" className="">
               About Me
             </Link>
             <div className="flex gap-3">
@@ -34,11 +34,12 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-row justify-center items-center">
+      <Link href="#myworks" className="flex flex-row justify-center items-center">
+
         <button className="rounded-full border-gray-300 border px-4 py-2 font-serif">
           See my work
         </button>
-      </div>
+      </Link>
     </div>
   );
 };
